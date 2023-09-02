@@ -4,7 +4,7 @@ import math
 
 pygame.init()
 
-
+# setting rgb values for the different colours used
 class DrawInformation:
     BLACK = 0, 0, 0
     WHITE = 255, 255, 255
@@ -18,6 +18,7 @@ class DrawInformation:
         (192, 192, 192)
     ]
 
+# initialising font variables and creating the display for the visualiser
     FONT = pygame.font.SysFont('arial', 30)
     LARGE_FONT = pygame.font.SysFont('arial', 40)
 
@@ -41,7 +42,7 @@ class DrawInformation:
         self.block_height = math.floor((self.height - self.TOP_PAD) / (self.max_val - self.min_val))
         self.start_x = self.SIDE_PAD // 2
 
-
+# filling in the window with the colours and variables being visualised such as the numbers in the data set
 def draw(draw_info, algo_name, ascending):
     draw_info.window.fill(draw_info.BACKGROUND_COLOR)
 
@@ -59,7 +60,7 @@ def draw(draw_info, algo_name, ascending):
     draw_list(draw_info)
     pygame.display.update()
 
-
+#creating the bar chart
 def draw_list(draw_info, color_positions={}, clear_bg=False):
     lst = draw_info.lst
 
@@ -82,7 +83,7 @@ def draw_list(draw_info, color_positions={}, clear_bg=False):
     if clear_bg:
         pygame.display.update()
 
-
+#creating the numbers in the data set
 def generate_starting_list(n, min_val, max_val):
     lst = []
 
@@ -92,7 +93,7 @@ def generate_starting_list(n, min_val, max_val):
 
     return lst
 
-
+#bubble sort algorithm used on the dataset
 def bubble_sort(draw_info, ascending=True):
     lst = draw_info.lst
 
@@ -108,7 +109,7 @@ def bubble_sort(draw_info, ascending=True):
 
     return lst
 
-
+#insertion sort algorithm used on the dataset
 def insertion_sort(draw_info, ascending=True):
     lst = draw_info.lst
 
@@ -130,7 +131,7 @@ def insertion_sort(draw_info, ascending=True):
 
     return lst
 
-
+#merge sort algorith used on the data set (WIP)
 def merge_sort(draw_info, ascending=True):
     lst = draw_info.lst
 
